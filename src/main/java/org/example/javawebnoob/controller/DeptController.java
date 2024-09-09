@@ -5,8 +5,7 @@ import org.example.javawebnoob.pojo.Dept;
 import org.example.javawebnoob.pojo.Result;
 import org.example.javawebnoob.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,4 +25,13 @@ public class DeptController {
         List<Dept> depts = deptService.list();
         return Result.success(depts);
     }
+
+    @DeleteMapping("/depts/{id}")
+    public Result delete(@PathVariable Integer id) {
+        log.info("删除部门信息, id={}", id);
+
+        deptService.delete(id);
+        return Result.success();
+    }
+
 }
