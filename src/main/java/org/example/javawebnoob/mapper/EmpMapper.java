@@ -8,9 +8,11 @@ import java.util.List;
 
 @Mapper
 public interface EmpMapper {
-    @Select("SELECT count(*) FROM emp")
-    public Long count();
-
-    @Select("select * from emp limit #{start},#{pageSize}")
-    public List<Emp> page(Integer start,Integer pageSize);
+    //    @Select("SELECT count(*) FROM emp")
+//    public Long count();
+//
+//    @Select("select * from emp limit #{start},#{pageSize}")
+//    public List<Emp> page(Integer start,Integer pageSize);
+    @Select("SELECT * FROM emp")
+    public List<Emp> list();
 }
