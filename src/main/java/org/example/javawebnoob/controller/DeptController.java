@@ -43,6 +43,14 @@ public class DeptController {
         return Result.success();
     }
 
+    @GetMapping("/{id}")
+    public Result getById(@PathVariable Integer id) {
+        log.info("查询部门信息, id={}", id);
+
+        Dept dept = deptService.getById(id);
+        return Result.success(dept);
+    }
+
     @PutMapping
     public Result update(@RequestBody Dept dept) {
         log.info("更新部门信息, dept={}", dept);

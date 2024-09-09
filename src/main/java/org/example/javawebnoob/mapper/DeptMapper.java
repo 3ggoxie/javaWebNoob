@@ -18,4 +18,7 @@ public interface DeptMapper {
 
     @Update("UPDATE dept SET name = #{name}, update_time = #{updateTime} WHERE id = #{id}")
     void update(Dept dept);
+
+    @Select("select * from dept where id = #{id}")
+    Dept getById(Integer id);
 }
