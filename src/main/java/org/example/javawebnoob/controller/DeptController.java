@@ -42,5 +42,13 @@ public class DeptController {
         deptService.add(dept);
         return Result.success();
     }
+
+    @PutMapping
+    public Result update(@RequestBody Dept dept) {
+        log.info("更新部门信息, dept={}", dept);
+
+        deptService.update(dept);
+        return Result.success();
+    }
 }
 
