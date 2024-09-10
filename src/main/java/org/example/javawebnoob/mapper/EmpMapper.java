@@ -2,6 +2,7 @@ package org.example.javawebnoob.mapper;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.example.javawebnoob.pojo.Emp;
 
 import java.time.LocalDate;
@@ -24,4 +25,7 @@ public interface EmpMapper {
             "values" + "(#{username},#{name},#{gender},#{image},#{job},#{entrydate},#{deptId},#{createTime}," +
             "#{updateTime})")
     void insert(Emp emp);
+
+    @Select("select * from emp where id = #{id}")
+    Emp getById(Integer id);
 }
