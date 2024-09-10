@@ -2,7 +2,7 @@ package org.example.javawebnoob.utils;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,19 +16,17 @@ import java.util.UUID;
 @Component
 public class AliOSSUtils {
 
-    @Value("${aliyun.oss.endpoint}")
-    private String endpoint;
-    @Value("${aliyun.oss.accessKeyId}")
-    private String accessKeyId;
-    @Value("${aliyun.oss.accessKeySecret}")
-    private String accessKeySecret;
-    @Value("${aliyun.oss.bucketName}")
-    private String bucketName;
+    @Autowired
+    private AliOSSProperties aliOSSProperties;
 
     /**
      * 实现上传图片到OSS
      */
     public String upload(MultipartFile file) throws IOException {
+        String endpoint = aliOSSProperties.getEndpoint();
+        String accessKeyId = aliOSSProperties.getAccessKeyId();
+        String accessKeySecret = aliOSSProperties.getAccessKeySecret();
+        String bucketName = aliOSSProperties.getBucketName();
         // 获取上传的文件的输入流
         InputStream inputStream = file.getInputStream();
 
