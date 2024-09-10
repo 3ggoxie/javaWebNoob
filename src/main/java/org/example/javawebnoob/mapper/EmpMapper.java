@@ -28,4 +28,6 @@ public interface EmpMapper {
 
     @Select("select * from emp where id = #{id}")
     Emp getById(Integer id);
+
+    void update(Emp emp);
 }
