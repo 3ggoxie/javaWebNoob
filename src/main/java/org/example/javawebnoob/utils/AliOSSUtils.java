@@ -2,10 +2,12 @@ package org.example.javawebnoob.utils;
 
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.UUID;
 
 /**
@@ -14,10 +16,14 @@ import java.util.UUID;
 @Component
 public class AliOSSUtils {
 
-    private String endpoint = "https://oss-cn-hangzhou.aliyuncs.com";
-    private String accessKeyId = "LTAI5tS5KsXwCXQ6qd4pDH2X";
-    private String accessKeySecret = "1uu4CDRDoj680sYWeckrm7iU3Rw0db";
-    private String bucketName = "hmleadnews-ssg";
+    @Value("${aliyun.oss.endpoint}")
+    private String endpoint;
+    @Value("${aliyun.oss.accessKeyId}")
+    private String accessKeyId;
+    @Value("${aliyun.oss.accessKeySecret}")
+    private String accessKeySecret;
+    @Value("${aliyun.oss.bucketName}")
+    private String bucketName;
 
     /**
      * 实现上传图片到OSS
