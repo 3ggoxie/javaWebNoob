@@ -23,13 +23,13 @@ aliyun:
     accessKeySecret: 1uu4CDRDoj680sYWeckrm7iU3Rw0db
     bucketName: hmleadnews-ssg
 
-
-
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
 
 ## 定义数组
 #hobby:
 #  - sing
 #  - dance
 #  - rap
-
 #  - basketball
