@@ -1,6 +1,7 @@
 package org.example.javawebnoob.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.javawebnoob.anno.Log;
 import org.example.javawebnoob.pojo.Dept;
 import org.example.javawebnoob.pojo.Result;
 import org.example.javawebnoob.service.DeptService;
@@ -27,6 +28,7 @@ public class DeptController {
         return Result.success(depts);
     }
 
+    @Log
     @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id) throws Exception {
         log.info("删除部门信息, id={}", id);
@@ -35,6 +37,7 @@ public class DeptController {
         return Result.success();
     }
 
+    @Log
     @PostMapping
     public Result add(@RequestBody Dept dept) {
         log.info("新增部门信息, dept={}", dept);
@@ -51,6 +54,7 @@ public class DeptController {
         return Result.success(dept);
     }
 
+    @Log
     @PutMapping
     public Result update(@RequestBody Dept dept) {
         log.info("更新部门信息, dept={}", dept);

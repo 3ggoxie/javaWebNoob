@@ -1,6 +1,7 @@
 package org.example.javawebnoob.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.javawebnoob.anno.Log;
 import org.example.javawebnoob.pojo.Emp;
 import org.example.javawebnoob.pojo.PageBean;
 import org.example.javawebnoob.pojo.Result;
@@ -31,6 +32,7 @@ public class EmpController {
         return Result.success(pageBean);
     }
 
+    @Log
     @DeleteMapping("/{ids}")
     public Result delete(@PathVariable List<Integer> ids) {
         log.info("批量删除员工,ids: {}", ids);
@@ -38,6 +40,7 @@ public class EmpController {
         return Result.success();
     }
 
+    @Log
     @PostMapping
     public Result save(@RequestBody Emp emp) {
         log.info("新增员工,emp: {}", emp);
@@ -52,6 +55,7 @@ public class EmpController {
         return Result.success(emp);
     }
 
+    @Log
     @PutMapping
     public Result update(@RequestBody Emp emp) {
         log.info("更新员工,emp: {}", emp);
